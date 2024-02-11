@@ -17,11 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -42,4 +39,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function employee()
+    {
+        return $this->hasOne(Employee::class);
+    }
+
+    public function instractor_courses()
+    {
+        return $this->belongsToMany(Course::class,'schedules');
+    }
 }
