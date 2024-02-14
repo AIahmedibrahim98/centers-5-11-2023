@@ -18,7 +18,7 @@ return new class extends Migration
             $table->decimal('salary');
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
-            $table->foreignId('user_id')->unique()->constrained();
+            $table->foreignId('user_id')->nullable()->unique()->constrained();
             $table->timestamps();
         });
     }

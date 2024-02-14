@@ -47,6 +47,11 @@ class User extends Authenticatable
 
     public function instractor_courses()
     {
-        return $this->belongsToMany(Course::class,'schedules');
+        return $this->belongsToMany(Course::class, 'schedules', 'instructor_id', 'course_id');
+    }
+
+    public function student_courses()
+    {
+        return $this->belongsToMany(Schedule::class,'schedule_users','student_id','schedule_id');
     }
 }

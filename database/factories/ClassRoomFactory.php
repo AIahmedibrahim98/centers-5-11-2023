@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Branch;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class ClassRoomFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name'=> $this->faker->word,
+            'configuration'=> $this->faker->sentence(10),
+            'capacity'=> $this->faker->numberBetween(6,20),
+            'branch_id'=> Branch::inRandomOrder()->first()->id
         ];
     }
 }

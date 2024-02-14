@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,13 @@ class BranchFactory extends Factory
      */
     public function definition(): array
     {
+        $companies_ids = Company::pluck('id')->toArray();
         return [
-            //
+            'name'=>$this->faker->streetName,
+            'location'=>$this->faker->address,
+            'phone'=> $this->faker->phoneNumber,
+            'company_id'=> $this->faker->randomElement($companies_ids)
+
         ];
     }
 }

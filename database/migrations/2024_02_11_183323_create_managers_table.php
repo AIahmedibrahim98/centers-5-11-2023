@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('company_id')->unique()->constrained();
+            $table->foreignId('company_id')->nullable()->unique()->constrained();
             $table->timestamps();
         });
     }
