@@ -1,20 +1,34 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Companies
-        </h2>
-    </x-slot>
+{{--@dd(auth()->user())--}}
+{{--@dd(Auth::id())--}}
+{{--@dd(auth()->id())--}}
+
 
     <div class="py-12">
         <div class="max-w-full mx-auto sm:px-3 lg:px-4">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <form class="sm:px-6 lg:px-8" method="get" action="{{route('companies.index')}}">
-                        <div>
-                            <x-input-label>Search</x-input-label>
-                            <x-text-input name="search"></x-text-input>
+                        <div class="flex justify-evenly border rounded p-3">
+                            <div>
+                                <x-input-label>Search</x-input-label>
+                                <x-text-input name="search"></x-text-input>
+                            </div>
+                            <div>
+                                <x-input-label>Manager</x-input-label>
+                                <x-text-input name="manager"></x-text-input>
+                            </div>
+                            <div class="mt-5">
+                                <x-primary-button type="submit">Search</x-primary-button>
+                            </div>
                         </div>
                     </form>
+                    {{--                    {{auth()->user()->name . ' - '  . auth()->user()->email}}--}}
+                    <div class="flex justify-end m-3">
+                        <x-button-link>
+                            Add New Company
+                            <x-slot name="href">{{route('companies.create')}}</x-slot>
+                        </x-button-link>
+                    </div>
                     <!-- component -->
                     <div class="flex flex-col w-full">
                         <div class="overflow-x-auto sm:mx-0.5 lg:mx-0.5">
@@ -53,7 +67,9 @@
                                         @forelse($companies as $key=> $company)
                                             <tr class="bg-white border-b text-center transition duration-300 ease-in-out hover:bg-gray-100">
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                                                    {{$loop->iteration}}
+                                                    {{--                                                    {{$loop->iteration}}--}}
+                                                    {{$companies->firstItem() + $key}}
+                                                    {{--                                                    {{$companies->firstItem() }}--}}
                                                 </td>
                                                 <td class="text-sm text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
                                                     {{$company->name}}
@@ -81,6 +97,8 @@
                                         @endforelse
                                         </tbody>
                                     </table>
+                                    {{--                                    <div class="mt-2">{{$companies->links('pagination::bootstrap-5')}}</div>--}}
+                                    <div class="mt-2">{{$companies->links()}}</div>
                                 </div>
                             </div>
                         </div>
