@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.index')">
                         Companies
                     </x-nav-link>
+                    <x-nav-link :href="route('branches.index')" :active="request()->routeIs('branches.index')">
+                        Branches
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -83,6 +86,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.index')">
                 Companies
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('branches.index')" :active="request()->routeIs('branches.index')">
+                Branches
             </x-responsive-nav-link>
         </div>
 
