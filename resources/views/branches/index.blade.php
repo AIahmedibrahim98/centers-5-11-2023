@@ -12,7 +12,7 @@
                     @if(session()->has('message'))
                         {{--                    @if(session('message'))--}}
                         <div
-                            class="flex justify-left items-center m-1 font-medium py-1 px-2 bg-white rounded-md text-green-100 bg-green-700 border border-green-700 ">
+                            class="text-green-100 bg-green-700 border border-green-700 flex justify-left items-center m-1 font-medium py-1 px-2 rounded-md">
                             <div slot="avatar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none"
                                      viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"

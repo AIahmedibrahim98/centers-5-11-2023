@@ -15,11 +15,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.index')">
+                    <x-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.*')">
                         Companies
                     </x-nav-link>
-                    <x-nav-link :href="route('branches.index')" :active="request()->routeIs('branches.index')">
+                    <x-nav-link :href="route('branches.index')" :active="request()->routeIs('branches.*')">
                         Branches
+                    </x-nav-link>
+                    <x-nav-link :href="route('vendors.index')" :active="request()->routeIs('vendors.*')">
+                        Vendors
                     </x-nav-link>
                 </div>
             </div>
@@ -89,6 +92,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('branches.index')" :active="request()->routeIs('branches.index')">
                 Branches
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('vendors.index')" :active="request()->routeIs('vendors.index')">
+                vendors
             </x-responsive-nav-link>
         </div>
 

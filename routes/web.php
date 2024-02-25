@@ -3,6 +3,7 @@
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,12 +36,13 @@ Route::middleware('auth')->group(function () {
         Route::post('store', [CompanyController::class, 'store'])->name('store');
         Route::get('/edit/{id}', [CompanyController::class, 'edit'])->name('edit');
         Route::patch('update/{id}', [CompanyController::class, 'update'])->name('update');
-        Route::delete('delete/{id}',[CompanyController::class,'delete'])->name('delete');
+        Route::delete('delete/{id}', [CompanyController::class, 'delete'])->name('delete');
     });
 
 //    Route::resource('branches',BranchController::class)->except('show');
 //    Route::resource('branches',BranchController::class)->only('show');
-    Route::resource('branches',BranchController::class);
+    Route::resource('branches', BranchController::class);
+    Route::resource('vendors', VendorController::class);
 });
 
 require __DIR__ . '/auth.php';
