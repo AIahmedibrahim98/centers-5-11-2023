@@ -8,11 +8,16 @@ use Illuminate\Support\Facades\Storage;
 
 class VendorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkAge');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+
         return view('vendors.index', ['vendors' => Vendor::orderBy('created_at', 'desc')->paginate(25)]);
     }
 

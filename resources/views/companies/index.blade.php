@@ -5,7 +5,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Companies
+            {{__('messages.Companies')}}
         </h2>
     </x-slot>
     <div class="py-12">
@@ -26,7 +26,7 @@
                                 </svg>
                             </div>
                             <div class="text-xl font-normal  max-w-full flex-initial">
-                                <div class="py-2">This is a success messsage
+                                <div class="py-2">{{__('messages.This is a success messsage')}}
                                     <div class="text-sm font-base">{{session('message')}}</div>
                                 </div>
                             </div>
@@ -36,22 +36,22 @@
                 <form class="sm:px-6 lg:px-8" method="get" action="{{route('companies.index')}}">
                     <div class="flex justify-evenly border rounded p-3">
                         <div>
-                            <x-input-label>Search</x-input-label>
+                            <x-input-label>{{__('messages.Search')}}</x-input-label>
                             <x-text-input name="search"></x-text-input>
                         </div>
                         <div>
-                            <x-input-label>Manager</x-input-label>
+                            <x-input-label>{{__('messages.Manager')}}</x-input-label>
                             <x-text-input name="manager"></x-text-input>
                         </div>
                         <div class="mt-5">
-                            <x-primary-button type="submit">Search</x-primary-button>
+                            <x-primary-button type="submit">{{__('messages.Search')}}</x-primary-button>
                         </div>
                     </div>
                 </form>
                 {{--                    {{auth()->user()->name . ' - '  . auth()->user()->email}}--}}
                 <div class="flex justify-end m-3">
                     <x-button-link>
-                        Add New Company
+                        {{__('messages.Add New Company')}}
                         <x-slot name="href">{{route('companies.create')}}</x-slot>
                     </x-button-link>
                 </div>
@@ -69,27 +69,27 @@
                                         </th>
                                         <th scope="col"
                                             class="text-sm font-medium text-gray-900 px-6 py-4 text-center">
-                                            Name
+                                            {{__('messages.Name')}}
                                         </th>
                                         <th scope="col"
                                             class="text-sm font-medium text-gray-900 px-6 py-4 text-center">
-                                            Owner
+                                            {{__('messages.Owner')}}
                                         </th>
                                         <th scope="col"
                                             class="text-sm font-medium text-gray-900 px-6 py-4 text-center">
-                                            Country
+                                            {{__('messages.Country')}}
                                         </th>
                                         <th scope="col"
                                             class="text-sm font-medium text-gray-900 px-6 py-4 text-center">
-                                            Manager
+                                            {{__('messages.Manager')}}
                                         </th>
                                         <th scope="col"
                                             class="text-sm font-medium text-gray-900 px-6 py-4 text-center">
-                                            Created At
+                                            {{__('messages.Created At')}}
                                         </th>
                                         <th scope="col"
                                             class="text-sm font-medium text-gray-900 px-6 py-4 text-center">
-                                            Actions
+                                            {{__('messages.Actions')}}
                                         </th>
 
                                     </tr>
@@ -115,7 +115,8 @@
                                                 {{$company->manager ? $company->manager->name : ''}}
                                             </td>
                                             <td class="text-sm text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
-                                                {{date_format(date_create($company->created_at),'Y-m-d h:i:s a')}}
+{{--                                                {{date_format(date_create($company->created_at),'Y-m-d h:i:s a')}}--}}
+                                                {{$company->created_at->diffForHumans()}}
                                             </td>
                                             <td>
                                                 <div class="flex justify-evenly">
@@ -140,7 +141,7 @@
                                         <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                             <td colspan="4"
                                                 class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                No Companies Yet
+                                                {{__('messages.No Companies Yet')}}
                                             </td>
                                         </tr>
                                     @endforelse

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CompanyController extends Controller
 {
@@ -92,6 +93,7 @@ class CompanyController extends Controller
             Company::destroy($id);
             return to_route('companies.index')->with('message', 'Company Deleted');
         } catch (\Exception $exception) {
+            Log::info($exception->getMessage());
             return to_route('companies.index')->with('message', $exception->getMessage());
         }
     }
