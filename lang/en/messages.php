@@ -1,6 +1,7 @@
 <?php
 return [
     'Companies' => 'Companies',
+    'no_companies' => '{0} No Companies|{1} Company|[2,*] Companies',
     'This is a success messsage' => 'This is a success messsage',
     'Search' => 'Search',
     'Manager' => 'Manager',
@@ -14,7 +15,7 @@ return [
     'Dashboard' => 'Dashboard',
     'Branches' => 'Branches',
     'vendors' => 'vendors',
-    'lang_code'=>'ar',
-    'lang'=>'اللغة العربية',
+    'lang_code' => 'ar',
+    'lang' => 'اللغة العربية',
 
 ];

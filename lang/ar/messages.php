@@ -1,6 +1,8 @@
 <?php
 return [
     'Companies' => 'الشركات',
+    'no_companies' => '{0} لا يوجد شركات|{2} شركتين|[11,*] شركة|[3,10] شركات',
+
     'This is a success messsage' => 'هذة رسالة نجاح',
     'Search' => 'بحث',
     'Manager' => 'المدير',

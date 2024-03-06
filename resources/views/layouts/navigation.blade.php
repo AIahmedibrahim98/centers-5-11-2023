@@ -16,7 +16,8 @@
                         {{ __('messages.Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.*')">
-                        {{__('messages.Companies')}}
+{{--                       ({{\App\Models\Company::count()}})  {{__('messages.Companies')}}--}}
+                        (2) {{trans_choice('messages.no_companies',2)}}
                     </x-nav-link>
                     <x-nav-link :href="route('branches.index')" :active="request()->routeIs('branches.*')">
                         {{__('messages.Branches')}}

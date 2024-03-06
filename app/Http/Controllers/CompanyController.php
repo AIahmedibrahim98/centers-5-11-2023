@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewCompany;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class CompanyController extends Controller
 {
@@ -52,12 +54,13 @@ class CompanyController extends Controller
                 $company->country = $request->country;
                 $company->save();*/
 
-        Company::create($request->except('_token'));
+       $company =  Company::create($request->except('_token'));
 //        return redirect()->to('/companies');
 //        return redirect()->route('companies.index');
 //        session()->put('message', 'Company Created');
 //        session()->forget('message');
 //        session()->flash('message', 'Company Created');
+        Mail::to(auth()->user()->email,auth()->user()->name)->send(new NewCompany($company));
         return to_route('companies.index')->with('message', 'Company Created');
     }
 
